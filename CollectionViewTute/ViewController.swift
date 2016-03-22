@@ -18,6 +18,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var closed: NSMutableArray = []
     var myInterval = NSTimer()
     var audioPlayer: AVAudioPlayer!
+    var shownClosedCells: NSMutableArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +68,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func botPlay(collectionView: UICollectionView) {
-        // Opens two random cards
+        // Opens one random cell, then the last viewed by player
         if allClosed(collectionView).count > 0 {
-            let openCellInd = allClosed(collectionView)[Int(arc4random_uniform(UInt32(allClosed(collectionView).count)))]
-            let openCell = collectionView.cellForItemAtIndexPath(openCellInd as! NSIndexPath) as! colvwCell
+            var openCellInd = allClosed(collectionView)[Int(arc4random_uniform(UInt32(allClosed(collectionView).count)))]
+            var openCell = collectionView.cellForItemAtIndexPath(openCellInd as! NSIndexPath) as! colvwCell
+            if state == 1 && shownClosedCells.count > 0 {
+                let checkCard = collectionView.cellForItemAtIndexPath(card1)
+//                if shownClosedCells.containsObject(checkCard!) {
+//                    openCell = shownClosedCells.lastObject as! colvwCell
+//                    openCellInd = collectionView.indexPathForCell(openCell)!
+//                }
+                for item in shownClosedCells {
+                    let ind = collectionView.indexPathForCell(item as! UICollectionViewCell)
+                    if tableImages[ind!.row] == tableImages[card1.row] {
+                        print("Seen this card!")
+                        openCell = item as! colvwCell
+                        openCellInd = collectionView.indexPathForCell(openCell)!
+                    }
+                }
+            }
             openCell.imgCell.image = UIImage(named: tableImages[openCellInd.row])
             exposed[openCellInd.row] = "true"
             playSound("blub")
@@ -104,6 +120,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if (isOpen as! String == "false") {
                 cell.imgCell.image = UIImage(named: tableImages[indexPath.row])
                 exposed[indexPath.row] = "true"
+                shownClosedCells.removeObject(cell)
                 playSound("blub")
             }
             if state == 0 {
@@ -117,6 +134,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                     let cell2 = collectionView.cellForItemAtIndexPath(card2) as! colvwCell
                     exposed[card1.row] = "false"
                     exposed[card2.row] = "false"
+                    shownClosedCells.addObject(cell1)
+                    shownClosedCells.addObject(cell2)
                     let myTimeout = setTimeout(0.8, block: { () -> Void in
                         cell1.imgCell.image = UIImage(named: "pattern")
                         cell2.imgCell.image = UIImage(named: "pattern")
