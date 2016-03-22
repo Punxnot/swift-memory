@@ -6,6 +6,8 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var playersScoreLabel: UILabel!
+    @IBOutlet weak var botsScoreLabel: UILabel!
 
     var tableImages: [String] = ["0.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "0.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"]
     var exposed: NSMutableArray = []
@@ -19,6 +21,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var myInterval = NSTimer()
     var audioPlayer: AVAudioPlayer!
     var shownClosedCells: NSMutableArray = []
+    var playersScore = 0
+    var botsScore = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         view.backgroundColor = UIColor.whiteColor()
         createExposed(exposed)
         tableImages = tableImages.shuffle()
+        playersScoreLabel.text = "Your score: " + String(playersScore)
+        botsScoreLabel.text = "Bot's score: " + String(botsScore)
     }
     
     func createExposed(exposed: NSMutableArray) {
@@ -104,6 +110,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                     playersTurn = true
                     collectionView.userInteractionEnabled = true
                     myInterval.invalidate()
+                } else {
+                    botsScore += 1
+                    botsScoreLabel.text = "Bot's score: " + String(botsScore)
                 }
             }
         }
@@ -143,6 +152,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                             self.botPlay(collectionView)
                         }
                     })
+                } else {
+                    playersScore += 1
+                    playersScoreLabel.text = "Your score: " + String(playersScore)
                 }
             }
         }
