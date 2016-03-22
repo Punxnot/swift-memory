@@ -196,6 +196,7 @@
 				TargetAttributes = {
 					94D073F01A4985D400CA7824 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 8C8ZH44G88;
 					};
 					94D074051A4985D400CA7824 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -381,9 +382,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CollectionViewTute/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = MemoryGame;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -391,9 +395,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CollectionViewTute/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = MemoryGame;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
