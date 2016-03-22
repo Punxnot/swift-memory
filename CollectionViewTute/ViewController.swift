@@ -3,6 +3,7 @@
 //  CollectionViewTute
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -16,6 +17,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var playersTurn = true
     var closed: NSMutableArray = []
     var myInterval = NSTimer()
+    var audioPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Creates an array to track cards state
         for _ in 1...tableImages.count {
             exposed.addObject("false")
+        }
+    }
+    
+    func playSound(sound: String) {
+        do {
+            self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(sound, ofType: "wav")!))
+            self.audioPlayer.play()
+            
+        } catch {
+            print("Error")
         }
     }
     
@@ -61,6 +73,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let openCell = collectionView.cellForItemAtIndexPath(openCellInd as! NSIndexPath) as! colvwCell
             openCell.imgCell.image = UIImage(named: tableImages[openCellInd.row])
             exposed[openCellInd.row] = "true"
+            playSound("blub")
             if state == 0 {
                 card1 = openCellInd as! NSIndexPath
                 state = 1
@@ -91,6 +104,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if (isOpen as! String == "false") {
                 cell.imgCell.image = UIImage(named: tableImages[indexPath.row])
                 exposed[indexPath.row] = "true"
+                playSound("blub")
             }
             if state == 0 {
                 card1 = indexPath
