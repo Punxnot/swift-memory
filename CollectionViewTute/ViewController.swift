@@ -27,7 +27,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func createExposed(exposed: NSMutableArray) {
         // Creates an array to track cards state
-        for _ in 0...tableImages.count {
+        for _ in 1...tableImages.count {
             exposed.addObject("false")
         }
     }
@@ -55,28 +55,31 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func botPlay(collectionView: UICollectionView) {
-        // Opens a random card
-        let openCellInd = allClosed(collectionView)[Int(arc4random_uniform(UInt32(allClosed(collectionView).count)))]
-        let openCell = collectionView.cellForItemAtIndexPath(openCellInd as! NSIndexPath) as! colvwCell
-        openCell.imgCell.image = UIImage(named: tableImages[openCellInd.row])
-        exposed[openCellInd.row] = "true"
-        if state == 0 {
-            card1 = openCellInd as! NSIndexPath
-            state = 1
-        } else if state == 1 {
-            card2 = openCellInd as! NSIndexPath
-            state = 0
-            if tableImages[card1.row] != tableImages[card2.row] {
-                let cell1 = collectionView.cellForItemAtIndexPath(card1) as! colvwCell
-                let cell2 = collectionView.cellForItemAtIndexPath(card2) as! colvwCell
-                exposed[card1.row] = "false"
-                exposed[card2.row] = "false"
-                let myTimeout = setTimeout(0.8, block: { () -> Void in
-                    cell1.imgCell.image = UIImage(named: "pattern")
-                    cell2.imgCell.image = UIImage(named: "pattern")
-                })
-                playersTurn = true
-                myInterval.invalidate()
+        // Opens two random cards
+        if allClosed(collectionView).count > 0 {
+            let openCellInd = allClosed(collectionView)[Int(arc4random_uniform(UInt32(allClosed(collectionView).count)))]
+            let openCell = collectionView.cellForItemAtIndexPath(openCellInd as! NSIndexPath) as! colvwCell
+            openCell.imgCell.image = UIImage(named: tableImages[openCellInd.row])
+            exposed[openCellInd.row] = "true"
+            if state == 0 {
+                card1 = openCellInd as! NSIndexPath
+                state = 1
+            } else if state == 1 {
+                card2 = openCellInd as! NSIndexPath
+                state = 0
+                if tableImages[card1.row] != tableImages[card2.row] {
+                    let cell1 = collectionView.cellForItemAtIndexPath(card1) as! colvwCell
+                    let cell2 = collectionView.cellForItemAtIndexPath(card2) as! colvwCell
+                    exposed[card1.row] = "false"
+                    exposed[card2.row] = "false"
+                    let myTimeout = setTimeout(0.8, block: { () -> Void in
+                        cell1.imgCell.image = UIImage(named: "pattern")
+                        cell2.imgCell.image = UIImage(named: "pattern")
+                    })
+                    playersTurn = true
+                    collectionView.userInteractionEnabled = true
+                    myInterval.invalidate()
+                }
             }
         }
     }
@@ -105,6 +108,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                         cell2.imgCell.image = UIImage(named: "pattern")
                     })
                     playersTurn = false
+                    collectionView.userInteractionEnabled = false
                     myInterval = setInterval(0.8, block: { () -> Void in
                         if self.playersTurn == false {
                             self.botPlay(collectionView)
