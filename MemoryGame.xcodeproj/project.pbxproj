@@ -16,6 +16,8 @@
 		1D72CD111C9B3E4B0024F2B2 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D72CD091C9B3E4B0024F2B2 /* 6.jpg */; };
 		1D72CD121C9B3E4B0024F2B2 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D72CD0A1C9B3E4B0024F2B2 /* 7.jpg */; };
 		1DC18FE71CA17F7F0028AB8E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC18FE61CA17F7F0028AB8E /* AVFoundation.framework */; };
+		1DD00BF21CA29EA4002C45A4 /* yeah.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1DD00BF11CA29EA4002C45A4 /* yeah.wav */; };
+		1DD00BF41CA29EB6002C45A4 /* boo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1DD00BF31CA29EB6002C45A4 /* boo.wav */; };
 		1DFAD3AC1C9FE519002CA7E0 /* blub.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1DFAD3AB1C9FE519002CA7E0 /* blub.wav */; };
 		94D073F71A4985D400CA7824 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D073F61A4985D400CA7824 /* AppDelegate.swift */; };
 		94D073F91A4985D400CA7824 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D073F81A4985D400CA7824 /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 		1D72CD091C9B3E4B0024F2B2 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
 		1D72CD0A1C9B3E4B0024F2B2 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		1DC18FE61CA17F7F0028AB8E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1DD00BF11CA29EA4002C45A4 /* yeah.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = yeah.wav; path = ../projects/memory/yeah.wav; sourceTree = "<group>"; };
+		1DD00BF31CA29EB6002C45A4 /* boo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = boo.wav; path = ../projects/memory/boo.wav; sourceTree = "<group>"; };
 		1DFAD3AB1C9FE519002CA7E0 /* blub.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = blub.wav; path = ../projects/memory/blub.wav; sourceTree = "<group>"; };
 		94D073F11A4985D400CA7824 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94D073F51A4985D400CA7824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				94D074091A4985D400CA7824 /* CollectionViewTuteTests */,
 				94D073F21A4985D400CA7824 /* Products */,
 				1DFAD3AB1C9FE519002CA7E0 /* blub.wav */,
+				1DD00BF11CA29EA4002C45A4 /* yeah.wav */,
+				1DD00BF31CA29EB6002C45A4 /* boo.wav */,
 			);
 			sourceTree = "<group>";
 		};
@@ -236,8 +242,10 @@
 				94D074011A4985D400CA7824 /* LaunchScreen.xib in Resources */,
 				1D72CD101C9B3E4B0024F2B2 /* 5.jpg in Resources */,
 				1D72CD0B1C9B3E4B0024F2B2 /* 0.jpg in Resources */,
+				1DD00BF21CA29EA4002C45A4 /* yeah.wav in Resources */,
 				1D72CD0C1C9B3E4B0024F2B2 /* 1.jpg in Resources */,
 				1DFAD3AC1C9FE519002CA7E0 /* blub.wav in Resources */,
+				1DD00BF41CA29EB6002C45A4 /* boo.wav in Resources */,
 				1D72CD121C9B3E4B0024F2B2 /* 7.jpg in Resources */,
 				94D073FE1A4985D400CA7824 /* Images.xcassets in Resources */,
 			);

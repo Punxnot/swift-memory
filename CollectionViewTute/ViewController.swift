@@ -113,6 +113,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 } else {
                     botsScore += 1
                     botsScoreLabel.text = "Bot's score: " + String(botsScore)
+                    if allClosed(collectionView).count == 0 {
+                        if playersScore > botsScore {
+                            print("Player wins")
+                            playersScoreLabel.text = "You win!"
+                            playSound("yeah")
+                        } else if playersScore == botsScore {
+                            print("Tie")
+                            playersScoreLabel.text = "It's a tie"
+                            playSound("yeah")
+                        } else {
+                            print("Bot wins")
+                            playersScoreLabel.text = "Bot wins..."
+                            playSound("boo")
+                        }
+                    }
                 }
             }
         }
@@ -155,6 +170,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 } else {
                     playersScore += 1
                     playersScoreLabel.text = "Your score: " + String(playersScore)
+                    if allClosed(collectionView).count == 0 {
+                        if playersScore > botsScore {
+                            print("Player wins")
+                            playersScoreLabel.text = "You win!"
+                            playSound("yeah")
+                        } else if playersScore == botsScore {
+                            print("Tie")
+                            playSound("yeah")
+                            playersScoreLabel.text = "It's a tie"
+                        } else {
+                            print("Bot wins")
+                            playersScoreLabel.text = "Bot wins..."
+                            playSound("boo")
+                        }
+                    }
                 }
             }
         }

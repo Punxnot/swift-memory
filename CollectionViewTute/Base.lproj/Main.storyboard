@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,28 +21,28 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Ar-aa-Fr1">
                                 <rect key="frame" x="0.0" y="-4" width="600" height="608"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="DNJ-sk-fph">
-                                    <size key="itemSize" width="70" height="124"/>
+                                    <size key="itemSize" width="55" height="97"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="sR8-50-aFU" customClass="colvwCell" customModule="MemoryGame" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="124"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="55" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2K-ub-bhf">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2K-ub-bhf">
                                                     <rect key="frame" x="0.0" y="63" width="71" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fE-rO-NUf">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fE-rO-NUf">
                                                     <rect key="frame" x="8" y="14" width="63" height="48"/>
                                                 </imageView>
                                             </subviews>
@@ -56,7 +57,7 @@
                                             <constraint firstItem="0fE-rO-NUf" firstAttribute="centerX" secondItem="x2K-ub-bhf" secondAttribute="centerX" id="gZd-ab-0Mq"/>
                                             <constraint firstItem="x2K-ub-bhf" firstAttribute="top" secondItem="sR8-50-aFU" secondAttribute="topMargin" constant="55" id="hbk-L0-hbH"/>
                                         </constraints>
-                                        <size key="customSize" width="70" height="124"/>
+                                        <size key="customSize" width="55" height="97"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="AEF-m6-MzD"/>
@@ -93,17 +94,17 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcA-cg-LIw">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bot's score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-km-GRF">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2Ar-aa-Fr1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="9ah-uZ-gOV"/>
                             <constraint firstItem="UcA-cg-LIw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="9ej-8Z-Ull"/>
@@ -121,10 +122,10 @@
                                 <exclude reference="cdb-km-GRF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="9ej-8Z-Ull"/>
-                                <exclude reference="w41-1s-d5X"/>
                                 <exclude reference="abS-67-5Xi"/>
                                 <exclude reference="lah-e5-O0x"/>
+                                <exclude reference="9ej-8Z-Ull"/>
+                                <exclude reference="w41-1s-d5X"/>
                                 <exclude reference="c4B-Uh-pIh"/>
                             </mask>
                         </variation>
@@ -134,10 +135,10 @@
                                 <include reference="cdb-km-GRF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="9ej-8Z-Ull"/>
-                                <include reference="w41-1s-d5X"/>
                                 <include reference="abS-67-5Xi"/>
                                 <include reference="lah-e5-O0x"/>
+                                <exclude reference="9ej-8Z-Ull"/>
+                                <include reference="w41-1s-d5X"/>
                                 <include reference="c4B-Uh-pIh"/>
                             </mask>
                         </variation>
